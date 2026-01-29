@@ -208,3 +208,10 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Active Technologies
+- Python 3.9+ (Backend), TypeScript (Frontend) + FastAPI, OpenAI Agents SDK, MCP SDK, SQLModel (Backend); Next.js, OpenAI ChatKit (Frontend) (002-ai-chat-agent-frontend-integration)
+- PostgreSQL (Neon Serverless PostgreSQL) (002-ai-chat-agent-frontend-integration)
+
+## Recent Changes
+- 002-ai-chat-agent-frontend-integration: Added Python 3.9+ (Backend), TypeScript (Frontend) + FastAPI, OpenAI Agents SDK, MCP SDK, SQLModel (Backend); Next.js, OpenAI ChatKit (Frontend)

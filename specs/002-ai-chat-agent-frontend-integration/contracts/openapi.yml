@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: AI Chat Agent API
+  version: 1.0.0
+  description: API for interacting with the AI Chat Agent for Todo task management.
+servers:
+  - url: http://localhost:8000/api
+    description: Local development server
+paths:
+  /{user_id}/chat:
+    post:
+      summary: Send a message to the AI Chat Agent
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: The ID of the authenticated user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: The user's message to the AI agent.
+                  example: "add a task to buy milk"
+                conversation_id:
+                  type: string
+                  format: uuid
+                  nullable: true
+                  description: Optional ID of an existing conversation to continue.
+                  example: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+              required:
+                - message
+      responses:
+        '200':
+          description: AI agent's response, conversation ID, and tool calls.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ai_response:
+                    type: string
+                    description: The AI agent's natural language response.
+                    example: "Okay, I've added 'buy milk' to your tasks."
+                  conversation_id:
+                    type: string
+                    format: uuid
+                    description: The ID of the conversation.
+                    example: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+                  tool_calls:
+                    type: array
+                    items:
+                      type: object # Placeholder for detailed tool call schema
+                      properties:
+                        tool_name:
+                          type: string
+                          example: "add_task"
+                        tool_args:
+                          type: object
+                          additionalProperties: true
+                          example: {"description": "buy milk"}
+                    description: Details of any tool calls made by the AI agent.
+                required:
+                  - ai_response
+                  - conversation_id
+                  - tool_calls
+        '401':
+          description: Unauthorized - user not authenticated or invalid JWT.
+        '403':
+          description: Forbidden - user_id in path does not match authenticated user.
+        '500':
+          description: Internal Server Error - something went wrong on the backend.
