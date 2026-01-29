@@ -1,0 +1,686 @@
+
+> frontend@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.3
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 4s
+ ○ Compiling / ...
+ ✓ Compiled / in 3.9s (495 modules)
+ HEAD / 200 in 4191ms
+ ✓ Compiled in 651ms (250 modules)
+ GET / 200 in 414ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1514ms (484 modules)
+ GET /next.svg 404 in 1802ms
+ GET /vercel.svg 404 in 1880ms
+ ○ Compiling /signup ...
+ ✓ Compiled /signup in 669ms (496 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /signup 200 in 908ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 28ms
+ GET /task 404 in 221ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 29ms
+ GET / 200 in 340ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 149ms
+ GET /vercel.svg 404 in 161ms
+ GET /next.svg 404 in 140ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1302ms (502 modules)
+ GET /login 200 in 1800ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 84ms
+ GET /signup 200 in 98ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 24ms
+ ○ Compiling /tasks ...
+ ✓ Compiled /tasks in 642ms (511 modules)
+ GET /tasks 200 in 300ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 789ms (514 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1070ms
+ GET /tasks 200 in 289ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 112ms
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/tasks/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/tasks/page.tsx
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/tasks/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/tasks/page.tsx
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/tasks/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/tasks/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ src/context/AuthContext.tsx (75:11) @ useAuth
+ ⨯ Error: useAuth must be used within an AuthProvider
+    at useAuth (./src/context/AuthContext.tsx:77:15)
+    at LoginPage (./src/app/login/page.tsx:20:84)
+digest: "776326685"
+[0m [90m 73 |[39m   [36mconst[39m context [33m=[39m useContext([33mAuthContext[39m)[33m;[39m[0m
+[0m [90m 74 |[39m   [36mif[39m (context [33m===[39m undefined) {[0m
+[0m[31m[1m>[22m[39m[90m 75 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m"useAuth must be used within an AuthProvider"[39m)[33m;[39m[0m
+[0m [90m    |[39m           [31m[1m^[22m[39m[0m
+[0m [90m 76 |[39m   }[0m
+[0m [90m 77 |[39m   [36mreturn[39m context[33m;[39m[0m
+[0m [90m 78 |[39m }[0m
+ GET /login 500 in 494ms
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/tasks/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/tasks/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 415ms
+ ○ Compiling /_not-found ...
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+./src/app/login/page.tsx
+ GET /login 200 in 285ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 76ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+ GET /login 200 in 917ms
+ ⚠ ./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+
+./src/context/AuthContext.tsx
+Attempted import error: 'jwt-decode' does not contain a default export (imported as 'jwtDecode').
+
+Import trace for requested module:
+./src/context/AuthContext.tsx
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 464ms
+ GET /login 200 in 168ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 44ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled /_not-found in 1440ms (507 modules)
+ GET /login 200 in 1277ms
+ ✓ Compiled /_not-found in 360ms (510 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 553ms
+ GET /login 200 in 200ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 104ms
+ GET /login 200 in 234ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 83ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 1160ms (510 modules)
+ GET /login 200 in 685ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 71ms
+ ✓ Compiled /tasks in 389ms (263 modules)
+ GET /login 200 in 96ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 620ms (515 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 770ms
+ GET /tasks 200 in 200ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 40ms
+ GET /tasks 200 in 322ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 86ms
+ ✓ Compiled in 1711ms (509 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /login 200 in 481ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 641ms (510 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 723ms
+ ✓ Compiled in 1746ms (265 modules)
+ ✓ Compiled in 724ms (265 modules)
+ ✓ Compiled /tasks in 271ms (264 modules)
+ ○ Compiling /tasks/[id] ...
+ ⨯ ./src/app/tasks/[id]/page.tsx
+Error: 
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/Users/ammadkhan/coding/giaic-hackathon-2/phase2/frontend/src/app/tasks/[id]/page.tsx[0m:139:1]
+ [2m139[0m |   }, [user, token, router, logout, taskId]);
+ [2m140[0m | 
+ [2m141[0m |   if (loading) {
+ [2m142[0m |     return <div className="text-center">Loading task details...</div>;
+     : [31;1m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+ [2m143[0m |   }
+ [2m144[0m | 
+ [2m145[0m |   if (error) {
+     `----
+
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/Users/ammadkhan/coding/giaic-hackathon-2/phase2/frontend/src/app/tasks/[id]/page.tsx[0m:143:1]
+ [2m143[0m |   }
+ [2m144[0m | 
+ [2m145[0m |   if (error) {
+ [2m146[0m |     return <div className="text-center text-red-500">Error: {error}</div>;
+     : [31;1m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+ [2m147[0m |   }
+ [2m148[0m | 
+ [2m149[0m |   if (!task) {
+     `----
+
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/Users/ammadkhan/coding/giaic-hackathon-2/phase2/frontend/src/app/tasks/[id]/page.tsx[0m:147:1]
+ [2m147[0m |       }
+ [2m148[0m |     
+ [2m149[0m |       if (!task) {
+ [2m150[0m | [31;1m,[0m[31;1m-[0m[31;1m>[0m     return (
+ [2m151[0m | [31;1m|[0m         <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100">
+ [2m152[0m | [31;1m|[0m           <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md text-center">
+ [2m153[0m | [31;1m|[0m             <p className="text-lg font-semibold">Task not found.</p>
+ [2m154[0m | [31;1m|[0m             <Link href="/tasks" className="mt-4 inline-block text-indigo-600 hover:text-indigo-500">
+ [2m155[0m | [31;1m|[0m               Go to Task List
+ [2m156[0m | [31;1m|[0m             </Link>
+ [2m157[0m | [31;1m|[0m           </div>
+ [2m158[0m | [31;1m|[0m         </div>
+ [2m159[0m | [31;1m`[0m[31;1m-[0m[31;1m>[0m     );
+ [2m160[0m |       }
+ [2m161[0m |     
+ [2m162[0m |       return (
+     `----
+
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/Users/ammadkhan/coding/giaic-hackathon-2/phase2/frontend/src/app/tasks/[id]/page.tsx[0m:159:1]
+ [2m159[0m |         );
+ [2m160[0m |       }
+ [2m161[0m |     
+ [2m162[0m | [31;1m,[0m[31;1m-[0m[31;1m>[0m   return (
+ [2m163[0m | [31;1m|[0m       <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100">
+ [2m164[0m | [31;1m|[0m         <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
+ [2m165[0m | [31;1m|[0m           <h2 className="mb-6 text-center text-3xl font-bold text-gray-900">
+ [2m166[0m | [31;1m|[0m             Task Details
+ [2m167[0m | [31;1m|[0m           </h2>
+ [2m168[0m | [31;1m|[0m           <div className="space-y-4">
+ [2m169[0m | [31;1m|[0m             <div>
+ [2m170[0m | [31;1m|[0m               <p className="text-sm font-medium text-gray-700">Title:</p>
+ [2m171[0m | [31;1m|[0m               <p className="text-lg text-gray-900">{task.title}</p>
+ [2m172[0m | [31;1m|[0m             </div>
+ [2m173[0m | [31;1m|[0m             {task.description && (
+ [2m174[0m | [31;1m|[0m               <div>
+ [2m175[0m | [31;1m|[0m                 <p className="text-sm font-medium text-gray-700">Description:</p>
+ [2m176[0m | [31;1m|[0m                 <p className="text-gray-900">{task.description}</p>
+ [2m177[0m | [31;1m|[0m               </div>
+ [2m178[0m | [31;1m|[0m             )}
+ [2m179[0m | [31;1m|[0m             <div>
+ [2m180[0m | [31;1m|[0m               <p className="text-sm font-medium text-gray-700">Status:</p>
+ [2m181[0m | [31;1m|[0m               <div className="flex items-center space-x-2">
+ [2m182[0m | [31;1m|[0m                 <input
+ [2m183[0m | [31;1m|[0m                   type="checkbox"
+ [2m184[0m | [31;1m|[0m                   id="completed-status"
+ [2m185[0m | [31;1m|[0m                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+ [2m186[0m | [31;1m|[0m                   checked={task.completed}
+ [2m187[0m | [31;1m|[0m                   onChange={handleComplete}
+ [2m188[0m | [31;1m|[0m                   disabled={loading}
+ [2m189[0m | [31;1m|[0m                 />
+ [2m190[0m | [31;1m|[0m                 <label htmlFor="completed-status" className="text-lg font-semibold text-gray-900">
+ [2m191[0m | [31;1m|[0m                   {task.completed ? "Completed" : "Pending"}
+ [2m192[0m | [31;1m|[0m                 </label>
+ [2m193[0m | [31;1m|[0m               </div>
+ [2m194[0m | [31;1m|[0m             </div>
+ [2m195[0m | [31;1m|[0m             <Link href="/tasks" className="mt-6 inline-block text-indigo-600 hover:text-indigo-500">
+ [2m196[0m | [31;1m|[0m               Back to Task List
+ [2m197[0m | [31;1m|[0m             </Link>
+ [2m198[0m | [31;1m|[0m             <button
+ [2m199[0m | [31;1m|[0m               onClick={handleDelete}
+ [2m200[0m | [31;1m|[0m               className="ml-4 rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+ [2m201[0m | [31;1m|[0m             >
+ [2m202[0m | [31;1m|[0m               Delete Task
+ [2m203[0m | [31;1m|[0m             </button>
+ [2m204[0m | [31;1m|[0m             <Link href={`/tasks/edit/${taskId}`} className="ml-4 rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+ [2m205[0m | [31;1m|[0m               Edit Task
+ [2m206[0m | [31;1m|[0m             </Link>
+ [2m207[0m | [31;1m|[0m           </div>
+ [2m208[0m | [31;1m|[0m         </div>
+ [2m209[0m | [31;1m|[0m       </div>
+ [2m210[0m | [31;1m`[0m[31;1m-[0m[31;1m>[0m   );
+ [2m211[0m |     }
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/Users/ammadkhan/coding/giaic-hackathon-2/phase2/frontend/src/app/tasks/[id]/page.tsx[0m:208:1]
+ [2m208[0m |       </div>
+ [2m209[0m |     </div>
+ [2m210[0m |   );
+ [2m211[0m | }
+     : [31;1m^[0m
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/tasks/[id]/page.tsx
+ ⨯ ./src/app/tasks/[id]/page.tsx
+Error: 
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/Users/ammadkhan/coding/giaic-hackathon-2/phase2/frontend/src/app/tasks/[id]/page.tsx[0m:139:1]
+ [2m139[0m |   }, [user, token, router, logout, taskId]);
+ [2m140[0m | 
+ [2m141[0m |   if (loading) {
+ [2m142[0m |     return <div className="text-center">Loading task details...</div>;
+     : [31;1m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+ [2m143[0m |   }
+ [2m144[0m | 
+ [2m145[0m |   if (error) {
+     `----
+
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/Users/ammadkhan/coding/giaic-hackathon-2/phase2/frontend/src/app/tasks/[id]/page.tsx[0m:143:1]
+ [2m143[0m |   }
+ [2m144[0m | 
+ [2m145[0m |   if (error) {
+ [2m146[0m |     return <div className="text-center text-red-500">Error: {error}</div>;
+     : [31;1m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+ [2m147[0m |   }
+ [2m148[0m | 
+ [2m149[0m |   if (!task) {
+     `----
+
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/Users/ammadkhan/coding/giaic-hackathon-2/phase2/frontend/src/app/tasks/[id]/page.tsx[0m:147:1]
+ [2m147[0m |       }
+ [2m148[0m |     
+ [2m149[0m |       if (!task) {
+ [2m150[0m | [31;1m,[0m[31;1m-[0m[31;1m>[0m     return (
+ [2m151[0m | [31;1m|[0m         <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100">
+ [2m152[0m | [31;1m|[0m           <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md text-center">
+ [2m153[0m | [31;1m|[0m             <p className="text-lg font-semibold">Task not found.</p>
+ [2m154[0m | [31;1m|[0m             <Link href="/tasks" className="mt-4 inline-block text-indigo-600 hover:text-indigo-500">
+ [2m155[0m | [31;1m|[0m               Go to Task List
+ [2m156[0m | [31;1m|[0m             </Link>
+ [2m157[0m | [31;1m|[0m           </div>
+ [2m158[0m | [31;1m|[0m         </div>
+ [2m159[0m | [31;1m`[0m[31;1m-[0m[31;1m>[0m     );
+ [2m160[0m |       }
+ [2m161[0m |     
+ [2m162[0m |       return (
+     `----
+
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/Users/ammadkhan/coding/giaic-hackathon-2/phase2/frontend/src/app/tasks/[id]/page.tsx[0m:159:1]
+ [2m159[0m |         );
+ [2m160[0m |       }
+ [2m161[0m |     
+ [2m162[0m | [31;1m,[0m[31;1m-[0m[31;1m>[0m   return (
+ [2m163[0m | [31;1m|[0m       <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100">
+ [2m164[0m | [31;1m|[0m         <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
+ [2m165[0m | [31;1m|[0m           <h2 className="mb-6 text-center text-3xl font-bold text-gray-900">
+ [2m166[0m | [31;1m|[0m             Task Details
+ [2m167[0m | [31;1m|[0m           </h2>
+ [2m168[0m | [31;1m|[0m           <div className="space-y-4">
+ [2m169[0m | [31;1m|[0m             <div>
+ [2m170[0m | [31;1m|[0m               <p className="text-sm font-medium text-gray-700">Title:</p>
+ [2m171[0m | [31;1m|[0m               <p className="text-lg text-gray-900">{task.title}</p>
+ [2m172[0m | [31;1m|[0m             </div>
+ [2m173[0m | [31;1m|[0m             {task.description && (
+ [2m174[0m | [31;1m|[0m               <div>
+ [2m175[0m | [31;1m|[0m                 <p className="text-sm font-medium text-gray-700">Description:</p>
+ [2m176[0m | [31;1m|[0m                 <p className="text-gray-900">{task.description}</p>
+ [2m177[0m | [31;1m|[0m               </div>
+ [2m178[0m | [31;1m|[0m             )}
+ [2m179[0m | [31;1m|[0m             <div>
+ [2m180[0m | [31;1m|[0m               <p className="text-sm font-medium text-gray-700">Status:</p>
+ [2m181[0m | [31;1m|[0m               <div className="flex items-center space-x-2">
+ [2m182[0m | [31;1m|[0m                 <input
+ [2m183[0m | [31;1m|[0m                   type="checkbox"
+ [2m184[0m | [31;1m|[0m                   id="completed-status"
+ [2m185[0m | [31;1m|[0m                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+ [2m186[0m | [31;1m|[0m                   checked={task.completed}
+ [2m187[0m | [31;1m|[0m                   onChange={handleComplete}
+ [2m188[0m | [31;1m|[0m                   disabled={loading}
+ [2m189[0m | [31;1m|[0m                 />
+ [2m190[0m | [31;1m|[0m                 <label htmlFor="completed-status" className="text-lg font-semibold text-gray-900">
+ [2m191[0m | [31;1m|[0m                   {task.completed ? "Completed" : "Pending"}
+ [2m192[0m | [31;1m|[0m                 </label>
+ [2m193[0m | [31;1m|[0m               </div>
+ [2m194[0m | [31;1m|[0m             </div>
+ [2m195[0m | [31;1m|[0m             <Link href="/tasks" className="mt-6 inline-block text-indigo-600 hover:text-indigo-500">
+ [2m196[0m | [31;1m|[0m               Back to Task List
+ [2m197[0m | [31;1m|[0m             </Link>
+ [2m198[0m | [31;1m|[0m             <button
+ [2m199[0m | [31;1m|[0m               onClick={handleDelete}
+ [2m200[0m | [31;1m|[0m               className="ml-4 rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+ [2m201[0m | [31;1m|[0m             >
+ [2m202[0m | [31;1m|[0m               Delete Task
+ [2m203[0m | [31;1m|[0m             </button>
+ [2m204[0m | [31;1m|[0m             <Link href={`/tasks/edit/${taskId}`} className="ml-4 rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+ [2m205[0m | [31;1m|[0m               Edit Task
+ [2m206[0m | [31;1m|[0m             </Link>
+ [2m207[0m | [31;1m|[0m           </div>
+ [2m208[0m | [31;1m|[0m         </div>
+ [2m209[0m | [31;1m|[0m       </div>
+ [2m210[0m | [31;1m`[0m[31;1m-[0m[31;1m>[0m   );
+ [2m211[0m |     }
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/Users/ammadkhan/coding/giaic-hackathon-2/phase2/frontend/src/app/tasks/[id]/page.tsx[0m:208:1]
+ [2m208[0m |       </div>
+ [2m209[0m |     </div>
+ [2m210[0m |   );
+ [2m211[0m | }
+     : [31;1m^[0m
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/tasks/[id]/page.tsx
+ GET /tasks/new 500 in 69ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 500 in 462ms
+ GET /tasks 500 in 33ms
+ GET /tasks 500 in 155ms
+ ✓ Compiled /_not-found in 1486ms (754 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/0cd8d0c2d3061d50.webpack.hot-update.json 404 in 1685ms
+ GET /tasks 200 in 221ms
+ ○ Compiling /tasks/[id] ...
+ ✓ Compiled /tasks/[id] in 1607ms (783 modules)
+ GET /tasks/new 200 in 351ms
+ ○ Compiling /tasks/new ...
+ ✓ Compiled /tasks/new in 4.1s (788 modules)
+ ✓ Compiled in 1433ms (798 modules)
+ GET /login 200 in 297ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1299ms (787 modules)
+ GET /tasks/edit/3 404 in 352ms
+ ✓ Compiled in 4.5s (801 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /tasks/edit/3 404 in 303ms
+ ○ Compiling /tasks/edit/[id] ...
+ ✓ Compiled /tasks/edit/[id] in 3.4s (792 modules)
+ ✓ Compiled in 2.4s (780 modules)
+ ✓ Compiled in 3.8s (780 modules)
+ ✓ Compiled in 368ms (473 modules)
+ ✓ Compiled in 266ms (473 modules)
+ ✓ Compiled in 763ms (473 modules)
+ ✓ Compiled in 1428ms (783 modules)
+ ✓ Compiled in 1625ms (474 modules)
+ ✓ Compiled in 1242ms (474 modules)
+ ✓ Compiled in 2.5s (783 modules)
+ ✓ Compiled in 995ms (474 modules)
+ ✓ Compiled in 9.3s (783 modules)
+ ✓ Compiled in 2.4s (783 modules)
+ ✓ Compiled in 3s (783 modules)
+ ✓ Compiled in 2.2s (783 modules)
+ ✓ Compiled in 1618ms (783 modules)
+ ✓ Compiled in 1064ms (783 modules)
+ ✓ Compiled in 1543ms (783 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 1160ms (760 modules)
+ ✓ Compiled /signup in 162ms (318 modules)
+ GET /login 200 in 321ms

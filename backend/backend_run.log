@@ -1,0 +1,1703 @@
+INFO:     Will watch for changes in these directories: ['/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [25824] using WatchFiles
+/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [25999]
+INFO:     Waiting for application startup.
+2026-01-25 01:35:46,915 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+INFO:sqlalchemy.engine.Engine:select pg_catalog.version()
+2026-01-25 01:35:46,916 INFO sqlalchemy.engine.Engine [raw sql] {}
+INFO:sqlalchemy.engine.Engine:[raw sql] {}
+2026-01-25 01:35:47,352 INFO sqlalchemy.engine.Engine select current_schema()
+INFO:sqlalchemy.engine.Engine:select current_schema()
+2026-01-25 01:35:47,352 INFO sqlalchemy.engine.Engine [raw sql] {}
+INFO:sqlalchemy.engine.Engine:[raw sql] {}
+2026-01-25 01:35:47,785 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+INFO:sqlalchemy.engine.Engine:show standard_conforming_strings
+2026-01-25 01:35:47,785 INFO sqlalchemy.engine.Engine [raw sql] {}
+INFO:sqlalchemy.engine.Engine:[raw sql] {}
+2026-01-25 01:35:48,236 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:35:48,244 INFO sqlalchemy.engine.Engine SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+INFO:sqlalchemy.engine.Engine:SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-01-25 01:35:48,245 INFO sqlalchemy.engine.Engine [generated in 0.00055s] {'table_name': 'user', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00055s] {'table_name': 'user', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-01-25 01:35:48,699 INFO sqlalchemy.engine.Engine SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+INFO:sqlalchemy.engine.Engine:SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-01-25 01:35:48,699 INFO sqlalchemy.engine.Engine [cached since 0.4547s ago] {'table_name': 'task', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+INFO:sqlalchemy.engine.Engine:[cached since 0.4547s ago] {'table_name': 'task', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-01-25 01:35:48,918 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+INFO:     Application startup complete.
+2026-01-25 01:36:03,128 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:36:03,144 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:36:03,145 INFO sqlalchemy.engine.Engine [generated in 0.00070s] {'username_1': 'testuser4'}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00070s] {'username_1': 'testuser4'}
+2026-01-25 01:36:04,050 INFO sqlalchemy.engine.Engine INSERT INTO "user" (username, hashed_password) VALUES (%(username)s, %(hashed_password)s) RETURNING "user".id
+INFO:sqlalchemy.engine.Engine:INSERT INTO "user" (username, hashed_password) VALUES (%(username)s, %(hashed_password)s) RETURNING "user".id
+2026-01-25 01:36:04,050 INFO sqlalchemy.engine.Engine [generated in 0.00024s] {'username': 'testuser4', 'hashed_password': '$2b$12$lY0BSPCj52LRl2PUNbK1M.r8FbccU5217p5Hx8Pkb.cWFwQCek/Pm'}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00024s] {'username': 'testuser4', 'hashed_password': '$2b$12$lY0BSPCj52LRl2PUNbK1M.r8FbccU5217p5Hx8Pkb.cWFwQCek/Pm'}
+2026-01-25 01:36:04,284 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+2026-01-25 01:36:04,503 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:36:04,506 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".id = %(pk_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".id = %(pk_1)s
+2026-01-25 01:36:04,506 INFO sqlalchemy.engine.Engine [generated in 0.00067s] {'pk_1': 1}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00067s] {'pk_1': 1}
+INFO:     127.0.0.1:61194 - "POST /api/signup HTTP/1.1" 200 OK
+2026-01-25 01:36:05,073 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:61546 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61566 - "OPTIONS /api/signup HTTP/1.1" 200 OK
+2026-01-25 01:37:33,167 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:37:33,167 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:37:33,168 INFO sqlalchemy.engine.Engine [cached since 90.02s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 90.02s ago] {'username_1': '12345678'}
+2026-01-25 01:37:34,543 INFO sqlalchemy.engine.Engine INSERT INTO "user" (username, hashed_password) VALUES (%(username)s, %(hashed_password)s) RETURNING "user".id
+INFO:sqlalchemy.engine.Engine:INSERT INTO "user" (username, hashed_password) VALUES (%(username)s, %(hashed_password)s) RETURNING "user".id
+2026-01-25 01:37:34,543 INFO sqlalchemy.engine.Engine [cached since 90.49s ago] {'username': '12345678', 'hashed_password': '$2b$12$gnIyFPidT2us9UmQTg/D2e/yuF4DcnlTyrPX1zZU7nBe3tZuGaeZq'}
+INFO:sqlalchemy.engine.Engine:[cached since 90.49s ago] {'username': '12345678', 'hashed_password': '$2b$12$gnIyFPidT2us9UmQTg/D2e/yuF4DcnlTyrPX1zZU7nBe3tZuGaeZq'}
+2026-01-25 01:37:34,760 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+2026-01-25 01:37:34,991 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:37:34,991 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".id = %(pk_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".id = %(pk_1)s
+2026-01-25 01:37:34,992 INFO sqlalchemy.engine.Engine [cached since 90.49s ago] {'pk_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 90.49s ago] {'pk_1': 2}
+INFO:     127.0.0.1:61566 - "POST /api/signup HTTP/1.1" 200 OK
+2026-01-25 01:37:35,567 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:61635 - "OPTIONS /api/login HTTP/1.1" 200 OK
+2026-01-25 01:37:48,231 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:37:48,231 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:37:48,231 INFO sqlalchemy.engine.Engine [cached since 105.1s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 105.1s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:61635 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:37:49,001 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:61635 - "OPTIONS /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:37:49,970 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:37:49,976 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 01:37:49,977 INFO sqlalchemy.engine.Engine [generated in 0.00068s] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00068s] {'owner_id_1': 2}
+INFO:     127.0.0.1:61635 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:37:50,466 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:40:58,740 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:40:58,742 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 01:40:58,742 INFO sqlalchemy.engine.Engine [cached since 188.8s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 188.8s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:62426 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:40:59,232 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:41:15,313 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:41:15,314 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:41:15,314 INFO sqlalchemy.engine.Engine [cached since 312.2s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 312.2s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:62492 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:41:16,138 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:41:17,970 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:41:17,971 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 01:41:17,972 INFO sqlalchemy.engine.Engine [cached since 208s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 208s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:62492 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:41:18,481 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:41:35,267 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:41:35,270 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 01:41:35,270 INFO sqlalchemy.engine.Engine [cached since 225.3s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 225.3s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:62580 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:41:35,787 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:47:41,640 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:47:41,645 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:47:41,645 INFO sqlalchemy.engine.Engine [cached since 698.5s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 698.5s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:64130 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:47:42,573 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:64172 - "OPTIONS /api/login HTTP/1.1" 200 OK
+2026-01-25 01:47:50,889 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:47:50,890 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:47:50,890 INFO sqlalchemy.engine.Engine [cached since 707.7s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 707.7s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:64172 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:47:51,687 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:49:17,477 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:49:17,479 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:49:17,479 INFO sqlalchemy.engine.Engine [cached since 794.3s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 794.3s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:64541 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:49:18,315 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:49:48,121 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:49:48,123 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:49:48,123 INFO sqlalchemy.engine.Engine [cached since 825s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 825s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:64671 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:49:48,930 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:50:04,511 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:50:04,511 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:50:04,511 INFO sqlalchemy.engine.Engine [cached since 841.4s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 841.4s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:64741 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:50:05,265 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:52:13,089 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:52:13,090 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:52:13,091 INFO sqlalchemy.engine.Engine [cached since 969.6s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 969.6s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:65274 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:52:14,055 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:52:59,172 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:52:59,172 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:52:59,172 INFO sqlalchemy.engine.Engine [cached since 1016s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 1016s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:65461 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:53:00,164 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:53:02,337 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:53:02,337 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:53:02,337 INFO sqlalchemy.engine.Engine [cached since 1019s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 1019s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:65461 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:53:03,309 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:65512 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65512 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+2026-01-25 01:53:22,143 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:53:22,144 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:53:22,144 INFO sqlalchemy.engine.Engine [cached since 1039s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 1039s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:49183 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:53:23,073 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:55:13,617 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:55:13,619 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:55:13,619 INFO sqlalchemy.engine.Engine [cached since 1150s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 1150s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:49687 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:55:14,419 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:49687 - "OPTIONS /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:55:15,132 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:55:15,133 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 01:55:15,133 INFO sqlalchemy.engine.Engine [cached since 1045s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 1045s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:49687 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:55:15,594 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:55:36,301 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:55:36,302 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 01:55:36,303 INFO sqlalchemy.engine.Engine [cached since 1066s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 1066s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:49792 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:55:36,759 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:57:36,953 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:57:36,962 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:57:36,963 INFO sqlalchemy.engine.Engine [cached since 1293s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 1293s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:50485 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:57:37,747 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:57:37,952 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:57:37,953 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 01:57:37,953 INFO sqlalchemy.engine.Engine [cached since 1188s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 1188s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:50485 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:57:38,424 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:57:47,019 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:57:47,020 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 01:57:47,021 INFO sqlalchemy.engine.Engine [cached since 1197s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 1197s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:50536 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:57:47,475 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51001 - "OPTIONS /api/login HTTP/1.1" 200 OK
+2026-01-25 01:59:34,117 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:59:34,119 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 01:59:34,119 INFO sqlalchemy.engine.Engine [cached since 1411s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 1411s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:51001 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 01:59:35,083 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 01:59:35,674 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 01:59:35,675 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 01:59:35,675 INFO sqlalchemy.engine.Engine [cached since 1305s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 1305s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51001 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 01:59:36,120 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:03:06,040 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:03:06,041 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:03:06,042 INFO sqlalchemy.engine.Engine [cached since 1516s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 1516s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51108 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:03:07,124 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51119 - "OPTIONS /api/2/tasks/new HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51121 - "OPTIONS /api/2/tasks/new HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51121 - "GET /api/2/tasks/new HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:51119 - "GET /api/2/tasks/new HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:51126 - "GET /api/2/tasks/new HTTP/1.1" 422 Unprocessable Content
+2026-01-25 02:04:22,957 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:04:22,961 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:04:22,961 INFO sqlalchemy.engine.Engine [cached since 1593s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 1593s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51138 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:04:23,510 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51142 - "GET /api/2/tasks/new HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:51144 - "GET /api/2/tasks/new HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:51190 - "OPTIONS /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:09:16,425 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:09:16,450 INFO sqlalchemy.engine.Engine INSERT INTO task (title, description, completed, owner_id) VALUES (%(title)s, %(description)s, %(completed)s, %(owner_id)s) RETURNING task.id
+INFO:sqlalchemy.engine.Engine:INSERT INTO task (title, description, completed, owner_id) VALUES (%(title)s, %(description)s, %(completed)s, %(owner_id)s) RETURNING task.id
+2026-01-25 02:09:16,451 INFO sqlalchemy.engine.Engine [generated in 0.00370s] {'title': 'title', 'description': 'title', 'completed': False, 'owner_id': 2}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00370s] {'title': 'title', 'description': 'title', 'completed': False, 'owner_id': 2}
+2026-01-25 02:09:16,957 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+2026-01-25 02:09:17,234 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:09:17,238 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+2026-01-25 02:09:17,238 INFO sqlalchemy.engine.Engine [generated in 0.00036s] {'pk_1': 1}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00036s] {'pk_1': 1}
+INFO:     127.0.0.1:51190 - "POST /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:09:17,750 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:09:17,880 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:09:17,881 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:09:17,881 INFO sqlalchemy.engine.Engine [cached since 1888s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 1888s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51190 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:09:18,397 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51190 - "OPTIONS /api/2/tasks/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51194 - "OPTIONS /api/2/tasks/1 HTTP/1.1" 200 OK
+2026-01-25 02:09:22,616 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:09:22,618 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:09:22,618 INFO sqlalchemy.engine.Engine [generated in 0.00031s] {'id_1': 1, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00031s] {'id_1': 1, 'owner_id_1': 2}
+INFO:     127.0.0.1:51190 - "GET /api/2/tasks/1 HTTP/1.1" 200 OK
+2026-01-25 02:09:23,173 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:09:23,196 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:09:23,196 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:09:23,196 INFO sqlalchemy.engine.Engine [cached since 0.578s ago] {'id_1': 1, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 0.578s ago] {'id_1': 1, 'owner_id_1': 2}
+INFO:     127.0.0.1:51194 - "GET /api/2/tasks/1 HTTP/1.1" 200 OK
+2026-01-25 02:09:23,685 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:09:31,050 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:09:31,051 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:09:31,052 INFO sqlalchemy.engine.Engine [cached since 1901s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 1901s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51197 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:09:31,951 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51220 - "GET /api/2/tasks/1 HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51222 - "GET /api/2/tasks/1 HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51225 - "OPTIONS /api/login HTTP/1.1" 200 OK
+2026-01-25 02:31:06,080 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:31:06,081 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 02:31:06,081 INFO sqlalchemy.engine.Engine [cached since 2265s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 2265s ago] {'username_1': '12345678'}
+2026-01-25 02:31:14,988 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:31:14,993 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 02:31:14,993 INFO sqlalchemy.engine.Engine [cached since 2274s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 2274s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:51229 - "GET / HTTP/1.1" 200 OK
+2026-01-25 02:31:25,767 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:31:25,775 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 02:31:25,776 INFO sqlalchemy.engine.Engine [cached since 2285s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 2285s ago] {'username_1': '12345678'}
+2026-01-25 02:31:27,225 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:31:32,599 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:31:32,600 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 02:31:32,603 INFO sqlalchemy.engine.Engine [cached since 2292s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 2292s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:51241 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 02:31:33,448 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:31:35,024 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:31:35,025 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:31:35,026 INFO sqlalchemy.engine.Engine [cached since 2187s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 2187s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51241 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:31:35,540 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+ERROR:src.main:An unexpected error occurred: (psycopg2.OperationalError) could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+
+[SQL: SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s]
+[parameters: {'username_1': '12345678'}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 245, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/src/main.py", line 55, in login
+    user = db.exec(select(models.User).where(models.User.username == form_data.username)).first()
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlmodel/orm/session.py", line 81, in exec
+    results = super().execute(
+        statement,
+    ...<4 lines>...
+        _add_event=_add_event,
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+
+[SQL: SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s]
+[parameters: {'username_1': '12345678'}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-25 02:52:28,565 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:28,567 INFO sqlalchemy.engine.Engine INSERT INTO task (title, description, completed, owner_id) VALUES (%(title)s, %(description)s, %(completed)s, %(owner_id)s) RETURNING task.id
+INFO:sqlalchemy.engine.Engine:INSERT INTO task (title, description, completed, owner_id) VALUES (%(title)s, %(description)s, %(completed)s, %(owner_id)s) RETURNING task.id
+2026-01-25 02:52:28,567 INFO sqlalchemy.engine.Engine [cached since 486.6s ago] {'title': 'new', 'description': 'new', 'completed': False, 'owner_id': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 486.6s ago] {'title': 'new', 'description': 'new', 'completed': False, 'owner_id': 2}
+2026-01-25 02:52:29,118 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+2026-01-25 02:52:30,167 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:30,168 INFO sqlalchemy.engine.Engine INSERT INTO task (title, description, completed, owner_id) VALUES (%(title)s, %(description)s, %(completed)s, %(owner_id)s) RETURNING task.id
+INFO:sqlalchemy.engine.Engine:INSERT INTO task (title, description, completed, owner_id) VALUES (%(title)s, %(description)s, %(completed)s, %(owner_id)s) RETURNING task.id
+2026-01-25 02:52:30,168 INFO sqlalchemy.engine.Engine [cached since 488.2s ago] {'title': 'new', 'description': 'new', 'completed': False, 'owner_id': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 488.2s ago] {'title': 'new', 'description': 'new', 'completed': False, 'owner_id': 2}
+2026-01-25 02:52:30,654 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+2026-01-25 02:52:30,871 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:30,871 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+2026-01-25 02:52:30,872 INFO sqlalchemy.engine.Engine [cached since 488.1s ago] {'pk_1': 3}
+INFO:sqlalchemy.engine.Engine:[cached since 488.1s ago] {'pk_1': 3}
+2026-01-25 02:52:30,884 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:30,885 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+2026-01-25 02:52:30,885 INFO sqlalchemy.engine.Engine [cached since 488.1s ago] {'pk_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 488.1s ago] {'pk_1': 2}
+INFO:     127.0.0.1:51265 - "POST /api/2/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51268 - "POST /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:52:31,374 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:52:31,400 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:52:31,505 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:31,506 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:31,506 INFO sqlalchemy.engine.Engine [cached since 2376s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 2376s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51268 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:52:31,942 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:52:33,640 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:33,640 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:33,641 INFO sqlalchemy.engine.Engine [cached since 485.5s ago] {'id_1': 1, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 485.5s ago] {'id_1': 1, 'owner_id_1': 2}
+ERROR:src.main:An unexpected error occurred: (psycopg2.OperationalError) could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+
+[SQL: SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s]
+[parameters: {'username_1': '12345678'}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 245, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/src/main.py", line 55, in login
+    user = db.exec(select(models.User).where(models.User.username == form_data.username)).first()
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlmodel/orm/session.py", line 81, in exec
+    results = super().execute(
+        statement,
+    ...<4 lines>...
+        _add_event=_add_event,
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not receive data from server: Operation timed out
+SSL SYSCALL error: Operation timed out
+
+[SQL: SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s]
+[parameters: {'username_1': '12345678'}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+INFO:     127.0.0.1:51268 - "GET /api/2/tasks/1 HTTP/1.1" 200 OK
+2026-01-25 02:52:34,157 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:52:34,168 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:34,169 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:34,169 INFO sqlalchemy.engine.Engine [cached since 486.1s ago] {'id_1': 1, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 486.1s ago] {'id_1': 1, 'owner_id_1': 2}
+INFO:     127.0.0.1:51265 - "GET /api/2/tasks/1 HTTP/1.1" 200 OK
+2026-01-25 02:52:34,612 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:52:36,876 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:36,878 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:36,878 INFO sqlalchemy.engine.Engine [cached since 488.8s ago] {'id_1': 1, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 488.8s ago] {'id_1': 1, 'owner_id_1': 2}
+2026-01-25 02:52:37,518 INFO sqlalchemy.engine.Engine DELETE FROM task WHERE task.id = %(id)s
+INFO:sqlalchemy.engine.Engine:DELETE FROM task WHERE task.id = %(id)s
+2026-01-25 02:52:37,518 INFO sqlalchemy.engine.Engine [generated in 0.00033s] {'id': 1}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00033s] {'id': 1}
+2026-01-25 02:52:37,823 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+INFO:     127.0.0.1:51265 - "DELETE /api/2/tasks/1 HTTP/1.1" 204 No Content
+2026-01-25 02:52:40,075 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:40,075 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:40,075 INFO sqlalchemy.engine.Engine [cached since 2384s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 2384s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51265 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:52:40,511 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51282 - "OPTIONS /api/2/tasks/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51284 - "OPTIONS /api/2/tasks/2 HTTP/1.1" 200 OK
+2026-01-25 02:52:45,852 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:45,855 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:45,855 INFO sqlalchemy.engine.Engine [cached since 497.7s ago] {'id_1': 2, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 497.7s ago] {'id_1': 2, 'owner_id_1': 2}
+INFO:     127.0.0.1:51284 - "GET /api/2/tasks/2 HTTP/1.1" 200 OK
+2026-01-25 02:52:46,314 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:52:46,318 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:46,318 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:46,319 INFO sqlalchemy.engine.Engine [cached since 498.2s ago] {'id_1': 2, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 498.2s ago] {'id_1': 2, 'owner_id_1': 2}
+INFO:     127.0.0.1:51282 - "GET /api/2/tasks/2 HTTP/1.1" 200 OK
+2026-01-25 02:52:47,201 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51282 - "OPTIONS /api/2/tasks/2/complete HTTP/1.1" 200 OK
+2026-01-25 02:52:48,064 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:48,065 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:48,065 INFO sqlalchemy.engine.Engine [cached since 499.9s ago] {'id_1': 2, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 499.9s ago] {'id_1': 2, 'owner_id_1': 2}
+2026-01-25 02:52:48,682 INFO sqlalchemy.engine.Engine UPDATE task SET completed=%(completed)s WHERE task.id = %(task_id)s
+INFO:sqlalchemy.engine.Engine:UPDATE task SET completed=%(completed)s WHERE task.id = %(task_id)s
+2026-01-25 02:52:48,682 INFO sqlalchemy.engine.Engine [generated in 0.00037s] {'completed': True, 'task_id': 2}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00037s] {'completed': True, 'task_id': 2}
+2026-01-25 02:52:48,986 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+2026-01-25 02:52:49,203 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:49,204 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+2026-01-25 02:52:49,204 INFO sqlalchemy.engine.Engine [cached since 506.5s ago] {'pk_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 506.5s ago] {'pk_1': 2}
+INFO:     127.0.0.1:51282 - "PATCH /api/2/tasks/2/complete HTTP/1.1" 200 OK
+2026-01-25 02:52:49,805 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:52:54,973 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:54,974 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:54,974 INFO sqlalchemy.engine.Engine [cached since 2399s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 2399s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51287 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:52:55,436 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51287 - "OPTIONS /api/2/tasks/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51290 - "OPTIONS /api/2/tasks/3 HTTP/1.1" 200 OK
+2026-01-25 02:52:57,038 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:57,038 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:57,038 INFO sqlalchemy.engine.Engine [cached since 508.9s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 508.9s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:     127.0.0.1:51287 - "GET /api/2/tasks/3 HTTP/1.1" 200 OK
+2026-01-25 02:52:57,488 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:52:57,502 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:52:57,503 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:52:57,503 INFO sqlalchemy.engine.Engine [cached since 509.4s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 509.4s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:     127.0.0.1:51290 - "GET /api/2/tasks/3 HTTP/1.1" 200 OK
+2026-01-25 02:52:57,938 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+WARNING:  WatchFiles detected changes in 'src/auth.py', 'src/schemas.py', 'src/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [25999]
+/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/pydantic/_internal/_config.py:383: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [27757]
+INFO:     Waiting for application startup.
+2026-01-25 02:53:40,898 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+INFO:sqlalchemy.engine.Engine:select pg_catalog.version()
+2026-01-25 02:53:40,900 INFO sqlalchemy.engine.Engine [raw sql] {}
+INFO:sqlalchemy.engine.Engine:[raw sql] {}
+2026-01-25 02:53:41,345 INFO sqlalchemy.engine.Engine select current_schema()
+INFO:sqlalchemy.engine.Engine:select current_schema()
+2026-01-25 02:53:41,345 INFO sqlalchemy.engine.Engine [raw sql] {}
+INFO:sqlalchemy.engine.Engine:[raw sql] {}
+2026-01-25 02:53:41,923 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+INFO:sqlalchemy.engine.Engine:show standard_conforming_strings
+2026-01-25 02:53:41,923 INFO sqlalchemy.engine.Engine [raw sql] {}
+INFO:sqlalchemy.engine.Engine:[raw sql] {}
+2026-01-25 02:53:43,356 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:53:43,368 INFO sqlalchemy.engine.Engine SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+INFO:sqlalchemy.engine.Engine:SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-01-25 02:53:43,368 INFO sqlalchemy.engine.Engine [generated in 0.00040s] {'table_name': 'user', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00040s] {'table_name': 'user', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-01-25 02:53:43,998 INFO sqlalchemy.engine.Engine SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+INFO:sqlalchemy.engine.Engine:SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-01-25 02:53:43,998 INFO sqlalchemy.engine.Engine [cached since 0.6306s ago] {'table_name': 'task', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+INFO:sqlalchemy.engine.Engine:[cached since 0.6306s ago] {'table_name': 'task', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-01-25 02:53:44,218 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+INFO:     Application startup complete.
+2026-01-25 02:54:52,542 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:54:52,555 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:54:52,555 INFO sqlalchemy.engine.Engine [generated in 0.00033s] {'id_1': 3, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00033s] {'id_1': 3, 'owner_id_1': 2}
+INFO:     127.0.0.1:51330 - "GET /api/2/tasks/3 HTTP/1.1" 200 OK
+2026-01-25 02:54:52,998 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:54:54,507 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:54:54,508 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:54:54,509 INFO sqlalchemy.engine.Engine [cached since 1.954s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 1.954s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:     127.0.0.1:51330 - "GET /api/2/tasks/3 HTTP/1.1" 200 OK
+2026-01-25 02:54:55,034 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51332 - "OPTIONS /api/2/tasks/3 HTTP/1.1" 200 OK
+2026-01-25 02:55:38,149 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:38,149 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:55:38,150 INFO sqlalchemy.engine.Engine [cached since 45.6s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 45.6s ago] {'id_1': 3, 'owner_id_1': 2}
+2026-01-25 02:55:38,637 INFO sqlalchemy.engine.Engine UPDATE task SET title=%(title)s, description=%(description)s, completed=%(completed)s WHERE task.id = %(task_id)s
+INFO:sqlalchemy.engine.Engine:UPDATE task SET title=%(title)s, description=%(description)s, completed=%(completed)s WHERE task.id = %(task_id)s
+2026-01-25 02:55:38,638 INFO sqlalchemy.engine.Engine [generated in 0.00027s] {'title': 'newtitlenew', 'description': 'newnewtitlenew', 'completed': True, 'task_id': 3}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00027s] {'title': 'newtitlenew', 'description': 'newnewtitlenew', 'completed': True, 'task_id': 3}
+2026-01-25 02:55:38,856 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+2026-01-25 02:55:39,165 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:39,167 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+2026-01-25 02:55:39,167 INFO sqlalchemy.engine.Engine [generated in 0.00022s] {'pk_1': 3}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00022s] {'pk_1': 3}
+INFO:     127.0.0.1:51332 - "PUT /api/2/tasks/3 HTTP/1.1" 200 OK
+2026-01-25 02:55:39,780 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51332 - "OPTIONS /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:55:39,926 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:39,928 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:55:39,928 INFO sqlalchemy.engine.Engine [generated in 0.00052s] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00052s] {'owner_id_1': 2}
+INFO:     127.0.0.1:51332 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:55:40,400 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:55:46,923 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:46,923 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:55:46,923 INFO sqlalchemy.engine.Engine [cached since 54.37s ago] {'id_1': 2, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 54.37s ago] {'id_1': 2, 'owner_id_1': 2}
+INFO:     127.0.0.1:51348 - "GET /api/2/tasks/2 HTTP/1.1" 200 OK
+2026-01-25 02:55:47,462 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:55:47,479 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:47,480 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:55:47,480 INFO sqlalchemy.engine.Engine [cached since 54.93s ago] {'id_1': 2, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 54.93s ago] {'id_1': 2, 'owner_id_1': 2}
+INFO:     127.0.0.1:51348 - "GET /api/2/tasks/2 HTTP/1.1" 200 OK
+2026-01-25 02:55:47,915 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:55:51,487 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:51,487 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:55:51,488 INFO sqlalchemy.engine.Engine [cached since 58.93s ago] {'id_1': 2, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 58.93s ago] {'id_1': 2, 'owner_id_1': 2}
+2026-01-25 02:55:51,971 INFO sqlalchemy.engine.Engine DELETE FROM task WHERE task.id = %(id)s
+INFO:sqlalchemy.engine.Engine:DELETE FROM task WHERE task.id = %(id)s
+2026-01-25 02:55:51,971 INFO sqlalchemy.engine.Engine [generated in 0.00049s] {'id': 2}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00049s] {'id': 2}
+2026-01-25 02:55:52,272 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+INFO:     127.0.0.1:51348 - "DELETE /api/2/tasks/2 HTTP/1.1" 204 No Content
+2026-01-25 02:55:52,538 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:52,539 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:55:52,539 INFO sqlalchemy.engine.Engine [cached since 12.61s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 12.61s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51348 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:55:52,991 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:55:54,539 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:54,540 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:55:54,540 INFO sqlalchemy.engine.Engine [cached since 61.99s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 61.99s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:     127.0.0.1:51348 - "GET /api/2/tasks/3 HTTP/1.1" 200 OK
+2026-01-25 02:55:55,037 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:55:55,057 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:55,063 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:55:55,064 INFO sqlalchemy.engine.Engine [cached since 62.51s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 62.51s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:     127.0.0.1:51350 - "GET /api/2/tasks/3 HTTP/1.1" 200 OK
+2026-01-25 02:55:55,497 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51350 - "OPTIONS /api/2/tasks/3/complete HTTP/1.1" 200 OK
+2026-01-25 02:55:56,205 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:56,205 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:55:56,205 INFO sqlalchemy.engine.Engine [cached since 63.65s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 63.65s ago] {'id_1': 3, 'owner_id_1': 2}
+2026-01-25 02:55:56,778 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+2026-01-25 02:55:57,085 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:55:57,086 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+2026-01-25 02:55:57,086 INFO sqlalchemy.engine.Engine [cached since 17.92s ago] {'pk_1': 3}
+INFO:sqlalchemy.engine.Engine:[cached since 17.92s ago] {'pk_1': 3}
+INFO:     127.0.0.1:51350 - "PATCH /api/2/tasks/3/complete HTTP/1.1" 200 OK
+2026-01-25 02:55:57,700 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:56:03,360 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:56:03,361 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(id_1)s AND task.owner_id = %(owner_id_1)s
+2026-01-25 02:56:03,361 INFO sqlalchemy.engine.Engine [cached since 70.81s ago] {'id_1': 3, 'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 70.81s ago] {'id_1': 3, 'owner_id_1': 2}
+2026-01-25 02:56:03,844 INFO sqlalchemy.engine.Engine DELETE FROM task WHERE task.id = %(id)s
+INFO:sqlalchemy.engine.Engine:DELETE FROM task WHERE task.id = %(id)s
+2026-01-25 02:56:03,844 INFO sqlalchemy.engine.Engine [cached since 11.87s ago] {'id': 3}
+INFO:sqlalchemy.engine.Engine:[cached since 11.87s ago] {'id': 3}
+2026-01-25 02:56:04,151 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+INFO:     127.0.0.1:51353 - "DELETE /api/2/tasks/3 HTTP/1.1" 204 No Content
+2026-01-25 02:56:04,495 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:56:04,495 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:56:04,496 INFO sqlalchemy.engine.Engine [cached since 24.57s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 24.57s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51353 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:56:04,929 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 02:57:11,849 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 02:57:11,855 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 02:57:11,856 INFO sqlalchemy.engine.Engine [cached since 91.93s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 91.93s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51360 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 02:57:12,394 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51501 - "GET /api/2/tasks HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51674 - "OPTIONS /api/signup HTTP/1.1" 200 OK
+2026-01-25 03:09:51,399 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 03:09:51,408 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 03:09:51,408 INFO sqlalchemy.engine.Engine [generated in 0.00098s] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00098s] {'username_1': '12345678'}
+ERROR:src.main:An unexpected error occurred: (psycopg2.OperationalError) SSL connection has been closed unexpectedly
+
+[SQL: SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s]
+[parameters: {'username_1': '12345678'}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+INFO:     127.0.0.1:51674 - "POST /api/signup HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: SSL connection has been closed unexpectedly
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/fastapi/routing.py", line 245, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/starlette/concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/src/main.py", line 43, in create_user
+    db_user = db.exec(select(models.User).where(models.User.username == user.username)).first()
+              ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlmodel/orm/session.py", line 81, in exec
+    results = super().execute(
+        statement,
+    ...<4 lines>...
+        _add_event=_add_event,
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ammadkhan/coding/giaic-hackathon-2/phase2/backend/venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) SSL connection has been closed unexpectedly
+
+[SQL: SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s]
+[parameters: {'username_1': '12345678'}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+INFO:     127.0.0.1:51682 - "OPTIONS /api/login HTTP/1.1" 200 OK
+2026-01-25 03:10:01,584 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 03:10:01,585 INFO sqlalchemy.engine.Engine SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+INFO:sqlalchemy.engine.Engine:SELECT "user".id, "user".username, "user".hashed_password 
+FROM "user" 
+WHERE "user".username = %(username_1)s
+2026-01-25 03:10:01,585 INFO sqlalchemy.engine.Engine [cached since 10.18s ago] {'username_1': '12345678'}
+INFO:sqlalchemy.engine.Engine:[cached since 10.18s ago] {'username_1': '12345678'}
+INFO:     127.0.0.1:51682 - "POST /api/login HTTP/1.1" 200 OK
+2026-01-25 03:10:02,517 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51682 - "OPTIONS /api/2/tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51687 - "OPTIONS /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 03:10:04,063 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 03:10:04,063 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 03:10:04,063 INFO sqlalchemy.engine.Engine [cached since 864.2s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 864.2s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51687 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 03:10:04,569 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 03:10:04,574 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 03:10:04,574 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 03:10:04,574 INFO sqlalchemy.engine.Engine [cached since 864.7s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 864.7s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51682 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 03:10:05,169 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     127.0.0.1:51690 - "OPTIONS /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 03:10:11,714 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 03:10:11,717 INFO sqlalchemy.engine.Engine INSERT INTO task (title, description, completed, owner_id) VALUES (%(title)s, %(description)s, %(completed)s, %(owner_id)s) RETURNING task.id
+INFO:sqlalchemy.engine.Engine:INSERT INTO task (title, description, completed, owner_id) VALUES (%(title)s, %(description)s, %(completed)s, %(owner_id)s) RETURNING task.id
+2026-01-25 03:10:11,717 INFO sqlalchemy.engine.Engine [generated in 0.00028s] {'title': 'title', 'description': 'title', 'completed': False, 'owner_id': 2}
+INFO:sqlalchemy.engine.Engine:[generated in 0.00028s] {'title': 'title', 'description': 'title', 'completed': False, 'owner_id': 2}
+2026-01-25 03:10:12,234 INFO sqlalchemy.engine.Engine COMMIT
+INFO:sqlalchemy.engine.Engine:COMMIT
+2026-01-25 03:10:12,541 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 03:10:12,542 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.id = %(pk_1)s
+2026-01-25 03:10:12,543 INFO sqlalchemy.engine.Engine [cached since 873.4s ago] {'pk_1': 4}
+INFO:sqlalchemy.engine.Engine:[cached since 873.4s ago] {'pk_1': 4}
+INFO:     127.0.0.1:51690 - "POST /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 03:10:13,156 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 03:10:13,213 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 03:10:13,214 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 03:10:13,215 INFO sqlalchemy.engine.Engine [cached since 873.3s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 873.3s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51690 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 03:10:13,667 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+2026-01-25 03:10:13,678 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:sqlalchemy.engine.Engine:BEGIN (implicit)
+2026-01-25 03:10:13,678 INFO sqlalchemy.engine.Engine SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+INFO:sqlalchemy.engine.Engine:SELECT task.id, task.title, task.description, task.completed, task.owner_id 
+FROM task 
+WHERE task.owner_id = %(owner_id_1)s
+2026-01-25 03:10:13,679 INFO sqlalchemy.engine.Engine [cached since 873.8s ago] {'owner_id_1': 2}
+INFO:sqlalchemy.engine.Engine:[cached since 873.8s ago] {'owner_id_1': 2}
+INFO:     127.0.0.1:51692 - "GET /api/2/tasks HTTP/1.1" 200 OK
+2026-01-25 03:10:14,112 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:sqlalchemy.engine.Engine:ROLLBACK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27757]
+INFO:     Stopping reloader process [25824]
