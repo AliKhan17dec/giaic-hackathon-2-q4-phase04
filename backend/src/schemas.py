@@ -1,5 +1,8 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
+from uuid import UUID # Added UUID
+from datetime import datetime
+
 
 class UserCreate(BaseModel):
     username: str
@@ -10,7 +13,7 @@ class UserLogin(BaseModel):
     password: str
 
 class User(BaseModel):
-    id: int
+    id: UUID # Changed to UUID
     username: str
 
     class Config:
@@ -26,11 +29,49 @@ class TaskUpdate(BaseModel):
     completed: Optional[bool] = None
 
 class Task(BaseModel):
-    id: int
+    id: int # Keep as int for now, as tasks are not yet UUID based.
     title: str
     description: Optional[str] = None
     completed: bool
-    owner_id: int
+    owner_id: UUID # Changed to UUID
 
     class Config:
         orm_mode = True
+
+# New Chat Schemas
+class ChatRequest(BaseModel):
+    message: str
+    conversation_id: Optional[UUID] = None
+
+class ToolCall(BaseModel):
+    tool_name: str
+    tool_args: dict
+
+class Message(BaseModel): # New Message Schema
+    id: UUID
+    conversation_id: UUID
+    role: str
+    content: str
+    tool_calls: Optional[dict] = None
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        orm_mode = True
+
+
+class Conversation(BaseModel): # New Conversation Schema
+    id: UUID
+    user_id: UUID
+    created_at: datetime
+    updated_at: datetime
+    messages: List[Message] = [] # Include messages to eager load
+
+    class Config:
+        orm_mode = True
+
+
+class ChatResponse(BaseModel):
+    ai_response: str
+    conversation_id: UUID
+    tool_calls: List[ToolCall] = []
