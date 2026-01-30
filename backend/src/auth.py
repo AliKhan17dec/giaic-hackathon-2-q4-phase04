@@ -1,11 +1,13 @@
 import os
 from datetime import datetime, timedelta
+from uuid import UUID # Added UUID
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 import bcrypt
-import jwt
+from jose import jwt
+
 
 SECRET_KEY = os.environ.get("JWT_SECRET", "dev-secret")
 ALGORITHM = "HS256"
@@ -40,9 +42,12 @@ class Giga:
 
 def create_access_token(data: dict, expires_minutes: int = ACCESS_TOKEN_EXPIRE_MINUTES) -> str:
     to_encode = data.copy()
+    # Convert user_id to str for JWT encoding
+    if "user_id" in to_encode and isinstance(to_encode["user_id"], UUID):
+        to_encode["user_id"] = str(to_encode["user_id"])
     expire = datetime.utcnow() + timedelta(minutes=expires_minutes)
     to_encode.update({"exp": expire})
-    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    return jwt.encode(to_encode, SECRET_KEY, algorithms=[ALGORITHM])
 
 
 def get_current_user(token: str = Depends(oauth2_scheme)):
@@ -54,9 +59,10 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
-        user_id: int = payload.get("user_id")
-        if username is None or user_id is None:
+        user_id_str: str = payload.get("user_id") # Get as string
+        if username is None or user_id_str is None:
             raise credentials_exception
+        user_id: UUID = UUID(user_id_str) # Convert to UUID
         return {"username": username, "user_id": user_id}
     except jwt.PyJWTError:
         raise credentials_exception
