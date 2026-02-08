@@ -28,6 +28,12 @@ export default function Header() {
                     <Link href="/tasks" className="btn-ghost">
                         Tasks
                     </Link>
+                    <Link href="/chat" className="btn-ghost flex items-center space-x-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.733 1.395 3.132 3.128 3.132h5.344l2.922 2.922c.177.177.416.276.666.276.424 0 .768-.343.768-.768v-2.43c.996-.607 1.68-1.696 1.68-2.932v-6a3.132 3.132 0 0 0-3.128-3.128H3.628A3.132 3.132 0 0 0 .5 7.69v6.006Z" />
+                        </svg>
+                        <span>Chat</span>
+                    </Link>
 
                     {initialized && user ? (
                         <div className="flex items-center space-x-2">

@@ -4,6 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { API_URL } from "@/lib/api";
+import { formatError } from "@/lib/formatError";
 
 interface Task {
   id: number;
@@ -52,7 +53,8 @@ export default function TaskList() {
         const data: Task[] = await response.json();
         setTasks(data);
       } catch (err: any) {
-        setError(err.message);
+        console.error("Failed to fetch tasks:", err);
+        setError(formatError(err));
       } finally {
         setLoading(false);
       }

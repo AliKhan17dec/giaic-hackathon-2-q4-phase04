@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { API_URL } from "@/lib/api";
+import { formatError } from "@/lib/formatError";
 
 export default function NewTaskForm() {
   const [title, setTitle] = useState("");
@@ -52,7 +53,8 @@ export default function NewTaskForm() {
       setDescription("");
       router.push("/tasks"); // Redirect to tasks list after creating
     } catch (err: any) {
-      setError(err && err.message ? err.message : String(err));
+      console.error("Failed to create task:", err);
+      setError(formatError(err));
     }
   };
 

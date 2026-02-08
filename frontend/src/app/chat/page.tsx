@@ -14,7 +14,7 @@ interface Message {
 interface ChatResponse {
   ai_response: string;
   conversation_id: string; // UUID string
-  tool_calls: {tool_name: string; tool_args: any}[]; // Detailed tool_calls structure
+  tool_calls: { tool_name: string; tool_args: any }[]; // Detailed tool_calls structure
 }
 
 // New types for conversation history
@@ -71,6 +71,12 @@ export default function ChatPage() {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
+        if (!token) {
+          // No token available, skip conversation history
+          setLoading(false);
+          return;
+        }
+
         const headers = { Authorization: `Bearer ${token}` };
 
         // Fetch conversations for the user
@@ -96,20 +102,22 @@ export default function ChatPage() {
           const loadedMessages: Message[] = messagesResponse.data.flatMap((msg) => {
             const msgs: Message[] = [{ role: msg.role, content: msg.content }];
             if (msg.tool_calls && msg.tool_calls.length > 0) {
-                msg.tool_calls.forEach(call => {
-                    msgs.push({
-                        role: "tool",
-                        content: `Tool Call: ${call.tool_name}(${JSON.stringify(call.tool_args)})`
-                    });
+              msg.tool_calls.forEach(call => {
+                msgs.push({
+                  role: "tool",
+                  content: `Tool Call: ${call.tool_name}(${JSON.stringify(call.tool_args)})`
                 });
+              });
             }
             return msgs;
           });
           setMessages(loadedMessages);
         }
-      } catch (err) {
-        console.error("Error fetching conversation history:", err);
-        setError("Failed to load conversation history.");
+      } catch (err: any) {
+        // Handle authentication and conversation history errors silently
+        // This allows users to still use chat even if conversation history fails
+        console.warn("Conversation history unavailable:", err?.response?.status || err?.message);
+        setError(null);
       } finally {
         setLoading(false);
       }
@@ -186,18 +194,16 @@ export default function ChatPage() {
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`flex ${
-              msg.role === "user" ? "justify-end" : "justify-start"
-            }`}
+            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"
+              }`}
           >
             <div
-              className={`max-w-xs px-4 py-2 rounded-lg shadow ${
-                msg.role === "user"
-                  ? "bg-blue-500 text-white"
-                  : msg.role === "assistant"
+              className={`max-w-xs px-4 py-2 rounded-lg shadow ${msg.role === "user"
+                ? "bg-blue-500 text-white"
+                : msg.role === "assistant"
                   ? "bg-gray-300 text-gray-800"
                   : "bg-purple-300 text-purple-800" // Style for tool calls
-              }`}
+                }`}
             >
               {msg.content}
             </div>
@@ -220,7 +226,7 @@ export default function ChatPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type your message..."
-          className="flex-1 border rounded-lg p-2 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 border rounded-lg p-2 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           disabled={loading}
         />
         <button

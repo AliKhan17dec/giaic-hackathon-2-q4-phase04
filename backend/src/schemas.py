@@ -1,5 +1,5 @@
-from pydantic import BaseModel
-from typing import Optional, List
+from pydantic import BaseModel, validator
+from typing import Optional, List, Union
 from uuid import UUID # Added UUID
 from datetime import datetime
 
@@ -29,7 +29,7 @@ class TaskUpdate(BaseModel):
     completed: Optional[bool] = None
 
 class Task(BaseModel):
-    id: int # Keep as int for now, as tasks are not yet UUID based.
+    id: UUID
     title: str
     description: Optional[str] = None
     completed: bool
@@ -52,9 +52,16 @@ class Message(BaseModel): # New Message Schema
     conversation_id: UUID
     role: str
     content: str
-    tool_calls: Optional[dict] = None
+    tool_calls: Optional[Union[dict, List]] = None
     created_at: datetime
     updated_at: datetime
+
+    @validator('tool_calls', pre=True)
+    def normalize_tool_calls(cls, v):
+        # Convert empty list to None for consistency
+        if v == [] or v == {}:
+            return None
+        return v
 
     class Config:
         orm_mode = True

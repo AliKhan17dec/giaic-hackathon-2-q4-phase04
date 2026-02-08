@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request, Depends, HTTPException, status
+from typing import List
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from sqlmodel import Session, select, SQLModel
@@ -6,9 +7,16 @@ from uuid import UUID
 from .database import create_db_and_tables, get_session
 from . import models, schemas, auth, crud
 from .agent import AIAgent
+from .mcp_tools import MCPTools
 import logging
 from os import environ as env
 import json # Added import
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from the .env file in the backend directory
+env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
+load_dotenv(env_path)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -40,7 +48,12 @@ async def generic_exception_handler(request: Request, exc: Exception):
 
 @app.on_event("startup")
 def on_startup():
-    create_db_and_tables()
+    try:
+        create_db_and_tables()
+        logger.info("Database initialized successfully")
+    except Exception as e:
+        logger.warning(f"Database initialization failed: {e}")
+        logger.info("Continuing without database - some features may not work")
 
 @app.post("/api/signup", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_session)):
@@ -96,7 +109,7 @@ def get_tasks(
 @app.get("/api/{user_id}/tasks/{id}", response_model=schemas.Task)
 def get_single_task(
     user_id: UUID,
-    id: int,
+    id: UUID,
     current_user: dict = Depends(auth.get_current_user),
     db: Session = Depends(get_session),
 ):
@@ -111,7 +124,7 @@ def get_single_task(
 @app.put("/api/{user_id}/tasks/{id}", response_model=schemas.Task)
 def update_task(
     user_id: UUID,
-    id: int,
+    id: UUID,
     task: schemas.TaskUpdate,
     current_user: dict = Depends(auth.get_current_user),
     db: Session = Depends(get_session),
@@ -127,7 +140,7 @@ def update_task(
 @app.patch("/api/{user_id}/tasks/{id}/complete", response_model=schemas.Task)
 def complete_task(
     user_id: UUID,
-    id: int,
+    id: UUID,
     current_user: dict = Depends(auth.get_current_user),
     db: Session = Depends(get_session),
 ):
@@ -143,7 +156,7 @@ def complete_task(
 @app.delete("/api/{user_id}/tasks/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_task(
     user_id: UUID,
-    id: int,
+    id: UUID,
     current_user: dict = Depends(auth.get_current_user),
     db: Session = Depends(get_session),
 ):
@@ -210,11 +223,11 @@ async def chat_endpoint(
     crud.create_message(db, conversation_id, "user", chat_request.message)
 
     # Initialize AI agent
-    openai_api_key = env.get("OPENAI_API_KEY")
-    if not openai_api_key:
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="OPENAI_API_KEY not configured")
+    api_key = env.get("GEMINI_API_KEY") or env.get("OPENAI_API_KEY")
+    if not api_key:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="No API key configured")
     
-    agent = AIAgent(openai_api_key=openai_api_key)
+    agent = AIAgent(openai_api_key=api_key)
     
     # Initialize MCPTools with db session and user_id
     mcp_tools = MCPTools(db_session=db, user_id=user_id)
@@ -292,19 +305,85 @@ async def chat_endpoint(
 
     agent.add_message("user", chat_request.message)
     
-    ai_response_content = agent.run()
+    try:
+        ai_response_content = agent.run()
+    except Exception as e:
+        logger.error(f"AI agent error: {e}")
+        # Common OpenAI auth error contains 'invalid_api_key' or 'Incorrect API key'
+        msg = str(e).lower()
+        if "invalid_api_key" in msg or "incorrect api key" in msg or "authenticationerror" in msg:
+            raise HTTPException(status_code=502, detail="OpenAI authentication failed — check OPENAI_API_KEY")
+        raise HTTPException(status_code=500, detail=f"AI agent error: {e}")
 
-    # Extract tool calls from agent.messages if any, assuming the last message is the assistant's final response
+    # Extract tool calls or tool outputs from agent.messages for both OpenAI and Gemini flows.
     tool_calls_response = []
-    last_assistant_message = next((m for m in reversed(agent.messages) if m["role"] == "assistant"), None)
-    if last_assistant_message and last_assistant_message.tool_calls:
-        for tool_call in last_assistant_message.tool_calls:
-            tool_calls_response.append(
-                schemas.ToolCall(
-                    tool_name=tool_call.function.name,
-                    tool_args=json.loads(tool_call.function.arguments)
-                )
-            )
+
+    # Find last assistant message (supports dict messages or objects)
+    last_assistant_message = next(
+        (
+            m
+            for m in reversed(agent.messages)
+            if (isinstance(m, dict) and m.get("role") == "assistant")
+            or (hasattr(m, "role") and getattr(m, "role") == "assistant")
+        ),
+        None,
+    )
+
+    # Try OpenAI-style tool_calls first (could be attribute or dict key)
+    tool_calls = None
+    if last_assistant_message is not None:
+        if isinstance(last_assistant_message, dict):
+            tool_calls = last_assistant_message.get("tool_calls")
+            # Also allow assistant content to contain a JSON with a top-level `tool_call` key
+            if not tool_calls:
+                try:
+                    parsed = json.loads(last_assistant_message.get("content", "") or "")
+                    if isinstance(parsed, dict) and "tool_call" in parsed:
+                        tool_calls = [parsed["tool_call"]]
+                except Exception:
+                    pass
+        else:
+            tool_calls = getattr(last_assistant_message, "tool_calls", None)
+
+    if tool_calls:
+        for tool_call in tool_calls:
+            if isinstance(tool_call, dict):
+                # dict-style tool call (possibly from Gemini JSON or normalized OpenAI dict)
+                # Accept either {"name":..., "arguments": {...}} or nested function object
+                name = tool_call.get("name") or (tool_call.get("function", {}) or {}).get("name")
+                arguments = tool_call.get("arguments") or (tool_call.get("function", {}) or {}).get("arguments")
+                if isinstance(arguments, str):
+                    try:
+                        arguments = json.loads(arguments)
+                    except Exception:
+                        # leave as-is if not parseable
+                        pass
+                tool_calls_response.append(schemas.ToolCall(tool_name=name, tool_args=arguments or {}))
+            else:
+                # Fallback for OpenAI SDK objects
+                try:
+                    tool_calls_response.append(
+                        schemas.ToolCall(
+                            tool_name=tool_call.function.name,
+                            tool_args=json.loads(tool_call.function.arguments),
+                        )
+                    )
+                except Exception:
+                    # ignore malformed tool call
+                    pass
+
+    # Additionally, Gemini flow may append a separate `tool` message with content like
+    # {"tool": "name", "output": {...}}. Collect those as well.
+    for m in agent.messages:
+        if isinstance(m, dict) and m.get("role") == "tool":
+            try:
+                parsed = json.loads(m.get("content") or "")
+                if isinstance(parsed, dict) and "tool" in parsed:
+                    tool_name = parsed.get("tool")
+                    tool_args = parsed.get("output")
+                    tool_calls_response.append(schemas.ToolCall(tool_name=tool_name, tool_args=tool_args or {}))
+            except Exception:
+                continue
 
     # Add AI response to conversation
     crud.create_message(db, conversation_id, "assistant", ai_response_content, tool_calls=tool_calls_response)
@@ -315,6 +394,84 @@ async def chat_endpoint(
         conversation_id=conversation_id,
         tool_calls=tool_calls_response
     )
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+@app.post("/api/test-chat-simple")
+async def test_chat_simple(
+    chat_request: dict,
+):
+    """Simple test chat endpoint without database dependencies"""
+    try:
+        message = chat_request.get("message", "")
+        
+        # Initialize AI agent
+        api_key = env.get("GEMINI_API_KEY") or env.get("OPENAI_API_KEY")
+        if not api_key:
+            return {"ai_response": "No API key configured (GEMINI_API_KEY or OPENAI_API_KEY)"}
+        
+        agent = AIAgent(openai_api_key=api_key)
+        
+        # Mock tools for testing (without database)
+        def mock_add_task(description: str, title: str = None):
+            return {"status": "success", "task_id": "mock-123", "title": title or description, "description": description}
+        
+        def mock_get_tasks():
+            return {"status": "success", "tasks": [{"id": "mock-123", "title": "Sample task", "description": "A sample task", "completed": False}]}
+        
+        # Register mock tools
+        agent.register_tool(
+            tool_name="add_task",
+            tool_function=mock_add_task,
+            tool_openai_definition={
+                "type": "function",
+                "function": {
+                    "name": "add_task",
+                    "description": "Adds a new task for the current user.",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "description": {"type": "string", "description": "The description of the task."},
+                            "title": {"type": "string", "description": "The title of the task."},
+                        },
+                        "required": ["description"],
+                    },
+                },
+            },
+        )
+        agent.register_tool(
+            tool_name="get_tasks",
+            tool_function=mock_get_tasks,
+            tool_openai_definition={
+                "type": "function",
+                "function": {
+                    "name": "get_tasks",
+                    "description": "Retrieves all tasks for the current user.",
+                    "parameters": {"type": "object", "properties": {}},
+                },
+            },
+        )
+
+        agent.add_message("user", message)
+        logger.info(f"Added message to agent, total messages: {len(agent.messages)}")
+        
+        try:
+            ai_response_content = agent.run()
+            logger.info(f"AI agent response: {ai_response_content}")
+            logger.info(f"Response type: {type(ai_response_content)}")
+            if ai_response_content is None:
+                logger.error("Agent returned None!")
+        except Exception as e:
+            logger.error(f"AI agent error: {e}", exc_info=True)
+            ai_response_content = f"Sorry, I'm having trouble processing your request right now: {e}"
+
+        return {"ai_response": ai_response_content, "tool_calls": []}
+        
+    except Exception as e:
+        logger.error(f"Test chat error: {e}")
+        return {"error": f"Chat error: {e}"}
 
 @app.get("/")
 def read_root():

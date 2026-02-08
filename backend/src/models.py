@@ -3,7 +3,8 @@ from typing import List, Optional
 from uuid import UUID, uuid4
 import json
 
-from sqlmodel import Field, Relationship, SQLModel, JSON # Import JSON
+from sqlmodel import Field, Relationship, SQLModel
+from sqlalchemy import Column, JSON as SAJSON
 
 
 class UUIDModel(SQLModel):
@@ -36,7 +37,7 @@ class Message(UUIDModel, table=True):
     conversation_id: UUID = Field(foreign_key="conversations.id", index=True)
     role: str = Field(max_length=50) # "user", "assistant", "tool", "system"
     content: str = Field(nullable=False)
-    tool_calls: Optional[dict] = Field(default=None, sa_column=JSON)
+    tool_calls: Optional[dict] = Field(default=None, sa_column=Column(SAJSON()))
 
     conversation: Conversation = Relationship(back_populates="messages")
 

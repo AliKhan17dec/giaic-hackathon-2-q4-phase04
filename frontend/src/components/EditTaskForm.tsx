@@ -4,16 +4,17 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { API_URL } from "@/lib/api";
+import { formatError } from "@/lib/formatError";
 
 interface Task {
-  id: number;
+  id: string;
   title: string;
   description?: string;
   completed: boolean;
-  owner_id: number;
+  owner_id: string;
 }
 
-export default function EditTaskForm({ taskId }: { taskId: number }) {
+export default function EditTaskForm({ taskId }: { taskId: string }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [completed, setCompleted] = useState(false);
@@ -50,8 +51,8 @@ export default function EditTaskForm({ taskId }: { taskId: number }) {
         }
 
         if (!response.ok) {
-          const errData = await response.json();
-          throw new Error(errData.detail || "Failed to fetch task");
+          const errData = await response.json().catch(() => null);
+          throw errData ? new Error(errData.detail || JSON.stringify(errData)) : new Error("Failed to fetch task");
         }
 
         const data: Task = await response.json();
@@ -59,7 +60,8 @@ export default function EditTaskForm({ taskId }: { taskId: number }) {
         setDescription(data.description || "");
         setCompleted(data.completed);
       } catch (err: any) {
-        setError(err.message);
+        console.error("Failed to fetch task for edit:", err);
+        setError(formatError(err));
       } finally {
         setLoading(false);
       }
@@ -91,13 +93,14 @@ export default function EditTaskForm({ taskId }: { taskId: number }) {
       );
 
       if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.detail || "Failed to update task");
+        const errData = await response.json().catch(() => null);
+        throw errData ? new Error(errData.detail || JSON.stringify(errData)) : new Error("Failed to update task");
       }
 
       router.push("/tasks"); // Redirect to tasks list after updating
     } catch (err: any) {
-      setError(err.message);
+      console.error("Failed to update task:", err);
+      setError(formatError(err));
     }
   };
 

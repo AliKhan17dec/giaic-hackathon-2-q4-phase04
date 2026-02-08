@@ -57,11 +57,11 @@ def get_tasks(session: Session, owner_id: UUID) -> List[Task]:
     return session.exec(select(Task).where(Task.owner_id == owner_id)).all()
 
 
-def get_single_task(session: Session, task_id: int, owner_id: UUID) -> Optional[Task]:
+def get_single_task(session: Session, task_id: UUID, owner_id: UUID) -> Optional[Task]:
     return session.exec(select(Task).where(Task.id == task_id, Task.owner_id == owner_id)).first()
 
 
-def update_task(session: Session, task_id: int, owner_id: UUID, task_update: schemas.TaskUpdate) -> Optional[Task]:
+def update_task(session: Session, task_id: UUID, owner_id: UUID, task_update: schemas.TaskUpdate) -> Optional[Task]:
     db_task = session.exec(select(Task).where(Task.id == task_id, Task.owner_id == owner_id)).first()
     if not db_task:
         return None
@@ -76,7 +76,7 @@ def update_task(session: Session, task_id: int, owner_id: UUID, task_update: sch
     return db_task
 
 
-def delete_task(session: Session, task_id: int, owner_id: UUID) -> bool:
+def delete_task(session: Session, task_id: UUID, owner_id: UUID) -> bool:
     db_task = session.exec(select(Task).where(Task.id == task_id, Task.owner_id == owner_id)).first()
     if not db_task:
         return False

@@ -6,7 +6,7 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 import bcrypt
-from jose import jwt
+from jose import jwt, JWTError
 
 
 SECRET_KEY = os.environ.get("JWT_SECRET", "dev-secret")
@@ -47,7 +47,7 @@ def create_access_token(data: dict, expires_minutes: int = ACCESS_TOKEN_EXPIRE_M
         to_encode["user_id"] = str(to_encode["user_id"])
     expire = datetime.utcnow() + timedelta(minutes=expires_minutes)
     to_encode.update({"exp": expire})
-    return jwt.encode(to_encode, SECRET_KEY, algorithms=[ALGORITHM])
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 
 def get_current_user(token: str = Depends(oauth2_scheme)):
@@ -64,5 +64,5 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
             raise credentials_exception
         user_id: UUID = UUID(user_id_str) # Convert to UUID
         return {"username": username, "user_id": user_id}
-    except jwt.PyJWTError:
+    except JWTError:
         raise credentials_exception

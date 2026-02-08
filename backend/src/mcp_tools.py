@@ -27,19 +27,30 @@ class MCPTools:
         tasks = crud.get_tasks(self.db_session, self.user_id) # Assuming crud.get_tasks handles user_id
         return {"status": "success", "tasks": [{"id": str(t.id), "title": t.title, "description": t.description, "completed": t.completed} for t in tasks]}
 
-    def update_task_status(self, task_id: int, completed: bool) -> Dict[str, Any]:
+    def update_task_status(self, task_id: str, completed: bool) -> Dict[str, Any]:
         """Updates the completion status of a task."""
-        task = crud.get_single_task(self.db_session, self.user_id, task_id) # Assuming crud.get_single_task handles user_id
+        # task_id is expected as a UUID string from tools / openai
+        try:
+            task_uuid = UUID(task_id)
+        except Exception:
+            raise HTTPException(status_code=400, detail="Invalid task_id format")
+
+        task = crud.get_single_task(self.db_session, task_uuid, self.user_id)
         if not task:
             raise HTTPException(status_code=404, detail=f"Task with ID {task_id} not found.")
-        
-        task_update = crud.schemas.TaskUpdate(completed=completed) # Assuming schemas is available through crud
-        updated_task = crud.update_task(self.db_session, self.user_id, task_id, task_update) # Assuming crud.update_task handles user_id
+
+        task_update = crud.schemas.TaskUpdate(completed=completed)
+        updated_task = crud.update_task(self.db_session, task_uuid, self.user_id, task_update)
         return {"status": "success", "task_id": str(updated_task.id), "completed": updated_task.completed}
 
-    def delete_task(self, task_id: int) -> Dict[str, Any]:
+    def delete_task(self, task_id: str) -> Dict[str, Any]:
         """Deletes a task by its ID."""
-        deleted = crud.delete_task(self.db_session, self.user_id, task_id) # Assuming crud.delete_task handles user_id
+        try:
+            task_uuid = UUID(task_id)
+        except Exception:
+            raise HTTPException(status_code=400, detail="Invalid task_id format")
+
+        deleted = crud.delete_task(self.db_session, task_uuid, self.user_id)
         if not deleted:
-             raise HTTPException(status_code=404, detail=f"Task with ID {task_id} not found or not authorized.")
+            raise HTTPException(status_code=404, detail=f"Task with ID {task_id} not found or not authorized.")
         return {"status": "success", "task_id": str(task_id)}

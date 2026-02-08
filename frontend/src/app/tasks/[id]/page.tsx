@@ -2,25 +2,27 @@
 
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, use as reactUse } from "react";
 import Link from "next/link";
 import { API_URL } from "@/lib/api";
+import { formatError } from "@/lib/formatError";
 
 interface Task {
-  id: number;
+  id: string;
   title: string;
   description?: string;
   completed: boolean;
-  owner_id: number;
+  owner_id: string;
 }
-
-export default function TaskPage({ params }: { params: { id: string } }) {
+export default function TaskPage(props: { params: Promise<{ id: string }> | { id: string } }) {
   const { user, token, logout, initialized } = useAuth();
   const router = useRouter();
   const [task, setTask] = useState<Task | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const taskId = params.id;
+  // Unwrap `params` (may be a Promise) using React's `use` helper.
+  const resolvedParams = reactUse(props.params as any);
+  const taskId = resolvedParams.id;
 
   const handleComplete = async () => {
     if (!user || !token || !task) {
@@ -47,14 +49,15 @@ export default function TaskPage({ params }: { params: { id: string } }) {
       }
 
       if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.detail || "Failed to mark task as complete");
+        const errData = await response.json().catch(() => null);
+        throw errData ? new Error(errData.detail || JSON.stringify(errData)) : new Error("Failed to mark task as complete");
       }
 
       const updatedTask: Task = await response.json();
       setTask(updatedTask);
     } catch (err: any) {
-      setError(err.message);
+      console.error("Failed to mark task complete:", err);
+      setError(formatError(err));
     } finally {
       setLoading(false);
     }
@@ -87,13 +90,14 @@ export default function TaskPage({ params }: { params: { id: string } }) {
       }
 
       if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.detail || "Failed to delete task");
+        const errData = await response.json().catch(() => null);
+        throw errData ? new Error(errData.detail || JSON.stringify(errData)) : new Error("Failed to delete task");
       }
 
       router.push("/tasks");
     } catch (err: any) {
-      setError(err.message);
+      console.error("Failed to delete task:", err);
+      setError(formatError(err));
     }
   };
 
@@ -127,14 +131,16 @@ export default function TaskPage({ params }: { params: { id: string } }) {
         }
 
         if (!response.ok) {
-          const errData = await response.json();
-          throw new Error(errData.detail || "Failed to fetch task");
+          const errData = await response.json().catch(() => null);
+          throw errData ? new Error(errData.detail || JSON.stringify(errData)) : new Error("Failed to fetch task");
         }
 
         const data: Task = await response.json();
         setTask(data);
       } catch (err: any) {
-        setError(err.message);
+        const msg = err instanceof Error ? err.message : JSON.stringify(err);
+        console.error("Failed to fetch task:", msg);
+        setError(formatError(err));
       } finally {
         setLoading(false);
       }
