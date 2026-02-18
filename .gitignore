@@ -1,4 +1,11 @@
-# Python
+.env
+env/
+.env.local
+venv/
+__pycache__/
+*.pyc
+node_modules/
+frontend/.next/# Python
 __pycache__/
 *.pyc
 *.pyo
@@ -45,3 +52,10 @@ yarn-error.log*
 
 # Gemini CLI
 .gemini/
+.env
+.env.*
+env
+env/
+venv/
+.env.local
+.envrc
