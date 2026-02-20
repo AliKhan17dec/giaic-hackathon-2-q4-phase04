@@ -1,0 +1,73 @@
+{{- if .Values.postgresql.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "todo-chat.fullname" . }}-postgresql
+  labels:
+    {{- include "todo-chat.postgresql.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "todo-chat.postgresql.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "todo-chat.postgresql.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Values.postgresql.name }}
+        image: "{{ .Values.postgresql.image.repository }}:{{ .Values.postgresql.image.tag }}"
+        imagePullPolicy: {{ .Values.postgresql.image.pullPolicy }}
+        ports:
+        - name: postgresql
+          containerPort: {{ .Values.postgresql.service.port }}
+          protocol: TCP
+        env:
+        - name: POSTGRES_DB
+          value: {{ .Values.postgresql.auth.database | quote }}
+        - name: POSTGRES_USER
+          value: {{ .Values.postgresql.auth.username | quote }}
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "todo-chat.fullname" . }}-secret
+              key: postgresql-password
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+        volumeMounts:
+        - name: postgresql-data
+          mountPath: /var/lib/postgresql/data
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - pg_isready -U {{ .Values.postgresql.auth.username }}
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 6
+        readinessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - pg_isready -U {{ .Values.postgresql.auth.username }}
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        resources:
+          {{- toYaml .Values.postgresql.resources | nindent 10 }}
+      volumes:
+      - name: postgresql-data
+        {{- if .Values.postgresql.persistence.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ include "todo-chat.fullname" . }}-postgresql-pvc
+        {{- else }}
+        emptyDir: {}
+        {{- end }}
+{{- end }}

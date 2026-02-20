@@ -1,0 +1,170 @@
+# Default values for todo-chat application
+# This configuration is optimized for local minikube deployment
+
+# Global settings
+global:
+  # Set to 'local' for minikube, 'production' for cloud
+  environment: local
+
+# Backend configuration (FastAPI)
+backend:
+  enabled: true
+  name: backend
+  replicaCount: 1
+  
+  image:
+    repository: todo-chat-backend
+    pullPolicy: Never  # Use 'Never' for local images in minikube
+    tag: "latest"
+  
+  service:
+    type: NodePort
+    port: 8000
+    targetPort: 8000
+    nodePort: 30081
+  
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  
+  env:
+    # Database connection - using Neon PostgreSQL
+    DATABASE_URL: "postgresql://neondb_owner:npg_KJ1k5PzYXcAn@ep-plain-brook-ah1qxxqs-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+    # JWT secret - change this in production!
+    JWT_SECRET: "a-very-secret-key"
+    # Gemini API Key - replace with your actual key
+    GEMINI_API_KEY: "AIzaSyAv-lXBPDbEjOVlNKWweStuXp0ZYVKXIuU"
+  
+  livenessProbe:
+    enabled: true
+    path: /health
+    initialDelaySeconds: 30
+    periodSeconds: 10
+  
+  readinessProbe:
+    enabled: true
+    path: /health
+    initialDelaySeconds: 10
+    periodSeconds: 5
+
+# Frontend configuration (Next.js)
+frontend:
+  enabled: true
+  name: frontend
+  replicaCount: 1
+  
+  image:
+    repository: todo-chat-frontend
+    pullPolicy: Never  # Use 'Never' for local images in minikube
+    tag: "latest"
+  
+  service:
+    type: NodePort  # NodePort for easy local access
+    port: 3000
+    targetPort: 3000
+    nodePort: 30080  # Access at minikube-ip:30080
+  
+  resources:
+    limits:
+      cpu: 300m
+      memory: 256Mi
+    requests:
+      cpu: 150m
+      memory: 128Mi
+  
+  env:
+    # Backend API URL - accessible from browser
+    NEXT_PUBLIC_API_URL: "http://192.168.49.2:30081"
+
+# PostgreSQL database configuration (disabled - using Neon cloud database)
+postgresql:
+  enabled: false
+  name: postgresql
+  
+  image:
+    repository: postgres
+    tag: "15-alpine"
+    pullPolicy: IfNotPresent
+  
+  service:
+    type: ClusterIP
+    port: 5432
+  
+  # Persistent storage for database
+  persistence:
+    enabled: true
+    size: 1Gi
+    storageClass: standard  # Default minikube storage class
+  
+  # Database credentials
+  auth:
+    database: todochat
+    username: postgres
+    password: postgres  # Change this in production!
+  
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+
+# Ingress configuration (optional for local)
+ingress:
+  enabled: false  # Set to true if you want to use ingress
+  className: nginx
+  annotations:
+    {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: todo-chat.local
+      paths:
+        - path: /api
+          pathType: Prefix
+          backend:
+            service:
+              name: backend
+              port: 8000
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: frontend
+              port: 3000
+  tls: []
+
+# Service Account
+serviceAccount:
+  create: true
+  annotations: {}
+  name: "todo-chat-sa"
+
+# Pod annotations
+podAnnotations: {}
+
+# Pod security context
+podSecurityContext:
+  fsGroup: 1000
+
+# Security context
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  capabilities:
+    drop:
+      - ALL
+
+# Node selector
+nodeSelector: {}
+
+# Tolerations
+tolerations: []
+
+# Affinity
+affinity: {}

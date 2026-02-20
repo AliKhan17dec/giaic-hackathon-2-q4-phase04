@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+// API URL - defaults to backend NodePort for minikube
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://192.168.49.2:30081";
 
 export function apiUrl(path: string) {
     if (!path) return API_URL;

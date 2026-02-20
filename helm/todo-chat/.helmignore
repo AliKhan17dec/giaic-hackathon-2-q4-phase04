@@ -1,0 +1,36 @@
+# Patterns to ignore when building Helm packages
+# Only include what's necessary for the chart to function
+
+# Version control
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.bak
+*.tmp
+*~
+.project
+.idea/
+*.tmproj
+.vscode/
+*.orig
+
+# CI/CD files
+.travis.yml
+.gitlab-ci.yml
+.circleci/
+.github/
+
+# Testing
+test/
+tests/
+
+# Development values files  
+values-dev.yaml
+values-prod.yaml
+values-staging.yaml

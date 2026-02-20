@@ -21,7 +21,7 @@ export default function TaskPage(props: { params: Promise<{ id: string }> | { id
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   // Unwrap `params` (may be a Promise) using React's `use` helper.
-  const resolvedParams = reactUse(props.params as any);
+  const resolvedParams = reactUse(props.params as any) as { id: string };
   const taskId = resolvedParams.id;
 
   const handleComplete = async () => {

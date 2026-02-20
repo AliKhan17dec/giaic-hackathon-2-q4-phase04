@@ -1,0 +1,124 @@
+# Local deployment values for Todo Chat
+# This file contains configuration optimized for minikube local deployment
+
+global:
+  environment: local
+
+backend:
+  enabled: true
+  name: backend
+  replicaCount: 1
+  
+  image:
+    repository: todo-chat-backend
+    pullPolicy: Never
+    tag: "latest"
+  
+  service:
+    type: ClusterIP
+    port: 8000
+    targetPort: 8000
+  
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  
+  env:
+    DATABASE_URL: "postgresql://postgres:postgres@postgresql:5432/todochat"
+    JWT_SECRET: "a-very-secret-key"
+    GEMINI_API_KEY: "AIzaSyAv-lXBPDbEjOVlNKWweStuXp0ZYVKXIuU"
+  
+  livenessProbe:
+    enabled: true
+    path: /health
+    initialDelaySeconds: 30
+    periodSeconds: 10
+  
+  readinessProbe:
+    enabled: true
+    path: /health
+    initialDelaySeconds: 10
+    periodSeconds: 5
+
+frontend:
+  enabled: true
+  name: frontend
+  replicaCount: 1
+  
+  image:
+    repository: todo-chat-frontend
+    pullPolicy: Never
+    tag: "latest"
+  
+  service:
+    type: NodePort
+    port: 3000
+    targetPort: 3000
+    nodePort: 30080
+  
+  resources:
+    limits:
+      cpu: 300m
+      memory: 256Mi
+    requests:
+      cpu: 150m
+      memory: 128Mi
+  
+  env:
+    NEXT_PUBLIC_API_URL: "http://backend:8000"
+
+postgresql:
+  enabled: true
+  name: postgresql
+  
+  image:
+    repository: postgres
+    tag: "15-alpine"
+    pullPolicy: IfNotPresent
+  
+  service:
+    type: ClusterIP
+    port: 5432
+  
+  persistence:
+    enabled: true
+    size: 1Gi
+    storageClass: standard
+  
+  auth:
+    database: todochat
+    username: postgres
+    password: postgres
+  
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+
+ingress:
+  enabled: false
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: "todo-chat-sa"
+
+podAnnotations: {}
+
+podSecurityContext:
+  fsGroup: 1000
+
+securityContext: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

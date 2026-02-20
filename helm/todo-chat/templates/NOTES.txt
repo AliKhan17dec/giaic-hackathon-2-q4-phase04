@@ -1,0 +1,116 @@
+✨ Todo Chat Application has been successfully deployed! ✨
+
+Chart Name: {{ .Chart.Name }}
+Version: {{ .Chart.Version }}
+Release Name: {{ .Release.Name }}
+Namespace: {{ .Release.Namespace }}
+
+📦 Components Deployed:
+{{- if .Values.backend.enabled }}
+  ✓ Backend (FastAPI) - {{ .Values.backend.replicaCount }} replica(s)
+{{- end }}
+{{- if .Values.frontend.enabled }}
+  ✓ Frontend (Next.js) - {{ .Values.frontend.replicaCount }} replica(s)
+{{- end }}
+{{- if .Values.postgresql.enabled }}
+  ✓ PostgreSQL Database
+{{- end }}
+
+🌐 Access Your Application:
+
+{{- if .Values.frontend.enabled }}
+{{- if eq .Values.frontend.service.type "NodePort" }}
+
+Frontend (Next.js):
+  Get the application URL by running:
+  
+  export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+  export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ .Values.frontend.name }})
+  echo "Frontend URL: http://$NODE_IP:$NODE_PORT"
+
+  Or if using minikube:
+  minikube service {{ .Values.frontend.name }} --url
+
+{{- else if eq .Values.frontend.service.type "LoadBalancer" }}
+
+Frontend (Next.js):
+  Get the LoadBalancer IP by running:
+  
+  export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ .Values.frontend.name }} --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
+  echo "Frontend URL: http://$SERVICE_IP:{{ .Values.frontend.service.port }}"
+
+{{- else }}
+
+Frontend (Next.js):
+  Forward the frontend port to access locally:
+  
+  kubectl port-forward --namespace {{ .Release.Namespace }} svc/{{ .Values.frontend.name }} 3000:{{ .Values.frontend.service.port }}
+  echo "Frontend URL: http://localhost:3000"
+
+{{- end }}
+{{- end }}
+
+{{- if .Values.backend.enabled }}
+
+Backend API (FastAPI):
+  Forward the backend port to access locally:
+  
+  kubectl port-forward --namespace {{ .Release.Namespace }} svc/{{ .Values.backend.name }} 8000:{{ .Values.backend.service.port }}
+  echo "Backend API URL: http://localhost:8000"
+  echo "API Docs: http://localhost:8000/docs"
+
+{{- end }}
+
+{{- if .Values.postgresql.enabled }}
+
+PostgreSQL Database:
+  Forward the PostgreSQL port to connect locally:
+  
+  kubectl port-forward --namespace {{ .Release.Namespace }} svc/{{ .Values.postgresql.name }} 5432:{{ .Values.postgresql.service.port }}
+  
+  Connection details:
+  - Host: localhost
+  - Port: 5432
+  - Database: {{ .Values.postgresql.auth.database }}
+  - Username: {{ .Values.postgresql.auth.username }}
+  - Password: [stored in secret]
+
+{{- end }}
+
+📋 Useful Commands:
+
+  # View all pods
+  kubectl get pods --namespace {{ .Release.Namespace }}
+
+  # View all services
+  kubectl get services --namespace {{ .Release.Namespace }}
+
+  # View logs for backend
+  kubectl logs --namespace {{ .Release.Namespace }} -l app.kubernetes.io/component=backend -f
+
+  # View logs for frontend
+  kubectl logs --namespace {{ .Release.Namespace }} -l app.kubernetes.io/component=frontend -f
+
+  # View logs for database
+  kubectl logs --namespace {{ .Release.Namespace }} -l app.kubernetes.io/component=database -f
+
+  # Delete the release
+  helm uninstall {{ .Release.Name }} --namespace {{ .Release.Namespace }}
+
+{{- if .Values.ingress.enabled }}
+
+🌍 Ingress:
+{{- range .Values.ingress.hosts }}
+  - http://{{ .host }}
+{{- end }}
+{{- end }}
+
+⚠️  Important Notes:
+  - Make sure to update the GEMINI_API_KEY in values.yaml with your actual API key
+  - For production, change the JWT_SECRET and database password
+  - Database data is persisted using PersistentVolumeClaim
+
+📚 Documentation:
+  Visit the project repository for more information and troubleshooting guides.
+
+Happy coding! 🚀

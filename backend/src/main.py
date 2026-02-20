@@ -24,10 +24,17 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
-# Allow requests from the frontend dev server during development.
+# Allow requests from the frontend - supports local and Kubernetes deployments
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # change to your frontend origin(s)
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000", 
+        "http://192.168.49.2:30080",  # Minikube NodePort
+        "http://localhost:51141",      # Minikube tunnel
+        "http://127.0.0.1:51141",      # Minikube tunnel
+        "*",  # Allow all origins for local development
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -54,6 +61,11 @@ def on_startup():
     except Exception as e:
         logger.warning(f"Database initialization failed: {e}")
         logger.info("Continuing without database - some features may not work")
+
+@app.get("/health")
+def health_check():
+    """Health check endpoint for Kubernetes liveness and readiness probes"""
+    return {"status": "healthy", "service": "todo-chat-backend"}
 
 @app.post("/api/signup", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_session)):
